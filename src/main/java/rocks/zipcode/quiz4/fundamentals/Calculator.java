@@ -1,12 +1,15 @@
 package rocks.zipcode.quiz4.fundamentals;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * @author leon on 21/12/2018.
  */
 public class Calculator {
     public static Double squareRoot(Double value) {
 
-        return null;
+        return Math.sqrt(value);
     }
 
     public static Double square(Double value) {
@@ -14,11 +17,20 @@ public class Calculator {
     }
 
     public static Double[] squareRoots(Double... value) {
-        return null;
+        Double[] toBeArrayed = new Double[value.length];
+        for (int i = 0; i < value.length ; i++) {
+            toBeArrayed[i] = squareRoot(value[i]);
+        }
+
+        return toBeArrayed;
     }
 
     public static Double[] squares(Double... values) {
-        return null;
+        Double[] toBeArrayed = new Double[values.length];
+        for (int i = 0; i < values.length ; i++) {
+            toBeArrayed[i] = square(values[i]);
+        }
+        return toBeArrayed;
     }
 
     public static Double add(Double value1, Double value2) {
