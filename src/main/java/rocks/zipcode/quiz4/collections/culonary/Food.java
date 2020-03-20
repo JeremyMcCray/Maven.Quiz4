@@ -8,7 +8,8 @@ import java.util.Map;
 /**
  * @author leon on 27/12/2018.
  */
-public class Food {
+public class Food  <SpiceType extends Class<? extends Spice>>{
+
     ArrayList<Spice> spices = new ArrayList<>();
 
     public List<Spice> getAllSpices() {
@@ -16,15 +17,15 @@ public class Food {
     }
 
     public <SpiceType extends Class<? extends Spice>> Map<SpiceType, Integer> getSpiceCount() {
-//        HashMap<SpiceType,Integer> ans = new HashMap<>();
-//        for (Spice element: spices) {
-//            if(!ans.containsKey(element)){
-//                ans.put(  element,1);
-//            }else{
-//                ans.replace(element,ans.get(element)+1);
-//            }
-//        }
-        return null;
+        HashMap<SpiceType, Integer> ans = new HashMap<>();
+        for (Spice element: spices) {
+            if(!ans.containsKey((SpiceType)element.getClass())){
+                ans.put((SpiceType) element.getClass(),1);
+            }else{
+                ans.replace((SpiceType) element.getClass(),ans.get((SpiceType) element.getClass())+1);
+            }
+        }
+        return  ans;
     }
 
     public void applySpice(Spice spice) {
