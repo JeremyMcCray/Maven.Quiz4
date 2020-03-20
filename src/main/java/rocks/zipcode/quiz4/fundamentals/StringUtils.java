@@ -27,11 +27,39 @@ public class StringUtils {
     }
 
     public static String lowerCaseMiddleCharacter(String str) {
-        return null;
+        String ans = "";
+        if (str.length()>1){
+            for (int i = 0; i < str.length() / 2; i++) {
+                ans += str.charAt(i);
+            }
+            if(str.length() % 2 == 0) {
+                String mid = "" + str.charAt(str.length() / 2 + 1);
+                ans += mid.toLowerCase();
+            }else{
+                String mid = "" + str.charAt(str.length() / 2);
+                ans += mid.toLowerCase();
+            }
+
+            for (int i = str.length() / 2 + 1; i < str.length(); i++) {
+                ans += str.charAt(i);
+            }
+        } else {
+            ans+=str.toLowerCase();
+        }
+        return ans;
     }
 
     public static Boolean isIsogram(String str) {
-        return null;
+        char[] charArr = str.toCharArray();
+        for (int i = 0; i <charArr.length ; i++) {
+            for (int j = i+1; j < charArr.length; j++) {
+                if(charArr[i] == charArr[j]){
+                    return false;
+                }
+            }
+
+        }
+        return true;
     }
 
     public static Boolean hasDuplicateConsecutiveCharacters(String str) {
@@ -57,6 +85,17 @@ public class StringUtils {
     }
 
     public static String invertCasing(String str) {
-        return null;
+        Character[] charArr = str.chars()
+                                .mapToObj(ch ->(char) ch).
+                                toArray(Character[]::new);
+        String ans = "";
+        for (Character element: charArr) {
+            if(Character.isUpperCase(element)){
+                ans+= Character.toLowerCase(element);
+            } else{
+                ans+= Character.toUpperCase(element);
+            }
+        }
+        return ans;
     }
 }
