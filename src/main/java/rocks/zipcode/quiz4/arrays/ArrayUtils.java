@@ -24,6 +24,10 @@ public class ArrayUtils {
     }
 
     public static String[] removeLastElement(String[] values) {
-        return null;
+        String[] ans = new String[values.length-1];
+        for (int i = 0; i <values.length-1 ; i++) {
+            ans[i] = values[i];
+        }
+        return ans;
     }
 }
